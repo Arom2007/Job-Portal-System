@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+{% for job in jobs %}
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">{{ job.title }}</h5>
+    <p class="card-text">{{ job.description }}</p>
+    {% if request.user.is_authenticated %}
+    <a href="#" class="btn btn-success">Apply</a>
+    {% else %}
+    <a onclick="login_required()" class="btn btn-success">Apply</a>
+    {% endif %}
+     <a href="#" class="btn btn-outline-success">Detail</a>
+  </div>
+</div>
+<br>
+{% endfor %}
+{% endblock %}
