@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="{% static 'account/login.svg' %}" style="height:400px; width:500px">
+    </div>
+    <div class="col-md-6">
+
+        <div class="card" style="padding:50px; border-color:black; margin-top:50px">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <button type="submit" class="btn btn-success">Submit</button>
+                <a href="#" class="btn btn-outline-success">Create User</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
