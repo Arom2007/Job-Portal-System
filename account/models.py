@@ -11,6 +11,6 @@ class UserProfile(BaseModel):
 
 
 class UserAccountActivationKey(BaseModel):
-    user =models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     key = models.CharField(max_length=50)
 

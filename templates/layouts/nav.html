@@ -46,7 +46,7 @@
                             {% endif %}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarProfileDropdown">
-                            <a class="dropdown-item" href="#">My Profile</a>
+                            <a class="dropdown-item" href="{% url 'user_profile' request.user.id %}">My Profile</a>
                             <a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
             {% else %}
                 <div>
                     <a href="{% url 'user_login' %}" class="btn btn-success">Login</a>
-                    <a href="#" class="btn btn-outline-success">Register</a>
+                    <a href="{% url 'user_register' %}" class="btn btn-outline-success">Register</a>
                 </div>
             {% endif %}
         </div>

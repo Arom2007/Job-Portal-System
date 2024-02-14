@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        {% if request.user.userprofile.profile_picture %}
+        <img src="{{ request.user.userprofile.profile_picture.url }}" style="height: 400px; width: 400px">
+        {% else %}
+        <img src="{% static 'account/default_picture.png' %}" style="height: 400px; width: 400px">
+        {% endif %}
+    </div>
+    <div class="col-md-6">
+        <p>
+            <b>Name</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ request.user.get_full_name }}
+        </p>
+        <p>
+                <b>Email</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ request.user.email }}
+            </p>
+         <p>
+            <b>Address</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ request.user.address }}
+        </p>
+         <p>
+            <b>Phone Number</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ request.user.phone_number }}
+        </p>
+         <p>
+            <b>Resume</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             <a href="#">View</a>
+        </p>
+        <br><br>
+        <a href="#" class="btn btn-success">Update</a>
+        <a href="{% url 'home' %}" class="btn btn-outline-success">Cancel</a>
+    </div>
+</div>
+
+
+{% endblock %}
