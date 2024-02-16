@@ -17,17 +17,17 @@
                 <b>Email</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ request.user.email }}
             </p>
          <p>
-            <b>Address</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ request.user.address }}
+            <b>Address</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ request.user.userprofile.address }}
         </p>
          <p>
-            <b>Phone Number</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ request.user.phone_number }}
+            <b>Phone Number</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ request.user.userprofile.phone_number }}
         </p>
          <p>
             <b>Resume</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
              <a href="#">View</a>
         </p>
         <br><br>
-        <a href="#" class="btn btn-success">Update</a>
+        <a href="{% url 'user_profile_update' user.id %}" class="btn btn-success">Update</a>
         <a href="{% url 'home' %}" class="btn btn-outline-success">Cancel</a>
     </div>
 </div>

@@ -1,0 +1,53 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<form method="post" action="{% url 'user_profile_update' user.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">
+            {% if request.user.userprofile.profile_picture %}
+            <img src="{{ request.user.userprofile.profile_picture.url }}" style="height: 400px; width: 400px">
+            {% else %}
+            <img src="{% static 'account/default_picture.png' %}" style="height: 400px; width: 400px">
+            {% endif %}
+            <input type="file" name="pp">
+        </div>
+        <div class="col-md-6">
+            <div>
+                <label>First Name:</label>
+                <input type="text" name="first_name" value="{{ user.first_name }}">
+            </div>
+            <br>
+            <div>
+                <label>Last Name:</label>
+                <input type="text" name="last_name" value="{{ user.last_name }}">
+            </div>
+            <br>
+            <div>
+                <label>Email:</label>
+                <input type="text" name="email" value="{{ user.email }}">
+            </div>
+            <br>
+            <div>
+                <label>Address:</label>
+                <input type="text" name="address" value="{{ user.userprofile.address }}">
+            </div>
+            <br>
+            <div>
+                <label>Phone Number:</label>
+                <input type="text" name="phone_number" value="{{ user.userprofile.phone_number }}">
+            </div>
+            <br>
+            <div>
+                <label>Resume:</label>
+                <input type="file" name="resume">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <a class="btn btn-outline-success" href="{% url 'user_profile' user.id %}">Cancel</a>
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}

@@ -7,12 +7,17 @@
   <div class="card-body">
     <h5 class="card-title">{{ job.title }}</h5>
     <p class="card-text">{{ job.description }}</p>
+        <form method="post" action="{% url 'job_application' job.id %}">
     {% if request.user.is_authenticated %}
-    <a href="#" class="btn btn-success">Apply</a>
+      {% csrf_token %}
+      <button type="submit" class="btn btn-success">Apply</button>
+
     {% else %}
     <a onclick="login_required()" class="btn btn-success">Apply</a>
+
     {% endif %}
      <a href="#" class="btn btn-outline-success">Detail</a>
+     </form>
   </div>
 </div>
 <br>
