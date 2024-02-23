@@ -15,7 +15,7 @@
                 </li>
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link {{ student_active }}" href="#">My Jobs</a>
+                    <a class="nav-link {{ student_active }}" href="{% url 'my_jobs' %}">My Jobs</a>
                 </li>
                 {% endif %}
                 <li class="nav-item">

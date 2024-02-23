@@ -16,7 +16,7 @@
     <a onclick="login_required()" class="btn btn-success">Apply</a>
 
     {% endif %}
-     <a href="#" class="btn btn-outline-success">Detail</a>
+     <a href="{% url 'job_detail' job.id %}" class="btn btn-outline-success">Detail</a>
      </form>
   </div>
 </div>
